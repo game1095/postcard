@@ -1,0 +1,33 @@
+<h1>Postcard#index</h1>
+<p><%= link_to 'create' , new_card_path(@postcard) %></p>
+<table border="1px">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>quantity</th>
+      <th>price</th>
+      <th>status</th>
+      <th>Created date</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.id %></td>
+      <td><%= card.full_name%></td>
+      <td><%= card.address %></td>
+      <td><%= card.quantity %></td>
+      <td><%= card.each_price%></td>
+      <td><%= card.status %></td>
+      <td><%= card.created_at.strftime('%d/%B/%Y')%></td>
+      <td><%= card.user.email %></td>
+      <td><%= link_to 'show' , card_path(card.id) %></td>
+      <td><%= link_to 'edit' , edit_card_path(card.id) %></td>
+      <td><%= link_to 'destroy' ,  card_path(card.id) , method: :delete%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

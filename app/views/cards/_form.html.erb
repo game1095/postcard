@@ -1,0 +1,25 @@
+<%= form_for @card do |f| %>
+  <p>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name , required: true %>
+  </p>
+  <p>
+  	<%= f.label :address %>
+  	<%= f.text_area :address ,rows: 20 , cols: 30 , required: true %>
+  </p>
+  <p>
+    <%= f.label :phonenumber%>
+    <%= f.number_field :phone%>
+  </p>
+  <p>
+  	<%= f.label :quantity %>
+  	<%= f.number_field :quantity , required: true  %>
+  </p>
+  <p>
+    <%= f.label :status%>
+    <%= f.select "status", "<option>Pending</option><option>Success</option>".html_safe%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

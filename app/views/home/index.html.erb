@@ -1,9 +1,3 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<% if user_signed_in? == true %>
-  <%= current_user.email %>
-  <%= link_to 'sign-out' , destroy_user_session_path , method: :delete %>
-<% else %>
-  <%= link_to 'sign in' , new_user_session_path %>
-  <%= link_to 'sign up' , new_user_registration_path %>
-<% end %>
+<h1>ระบบพิมพ์ไปรษณีย์บัตร</h1>
+<p>พัฒนาโดยใช้เวลาว่าง ขอให้ทุกท่านจงสนุกสนานไปกับมัน</p>
+<h5>พัฒนาโดย <%= link_to 'megamind' , 'https://www.github.com/game1095/'%></h5>
