@@ -9,6 +9,23 @@
   </head>
 
   <body>
+    <div align="right">
+      <% if user_signed_in? == true %>
+        <%= current_user.email %>
+        <%= link_to 'sign-out' , destroy_user_session_path , method: :delete %>
+      <% else %>
+        <%= link_to 'sign in' , new_user_session_path %>
+        <%= link_to 'sign up' , new_user_registration_path %>
+      <% end %>
+    </div>
+
+    <div align="left">
+      <%= link_to 'postcard' , cards_path %> |
+      <%= link_to 'report' %> |
+      <%= link_to 'stock' %> |
+      <%= link_to 'department' %>
+    </div>
     <%= yield %>
+    <h6 align="right">พัฒนาโดย <%= link_to 'megamind' , 'https://www.github.com/game1095/'%></h6>
   </body>
 </html>
