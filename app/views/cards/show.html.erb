@@ -1,9 +1,28 @@
 <h1>show</h1>
 <p> 
+    full_name
     <%= @card.full_name%>
-    <%= @card.address%>
+</p>
+
+<p>
+    address
+    <%= @card.address%>    
 </p>
 <p>
-    
+    phone
+    <%= @card.phone%>
 </p>
+<p>
+    status
+    <%= @card.status%>
+</p>
+<p>
+    quantity
+    <%= @card.quantity%>
+</p>
+<p>
+    price
+    <%= @card.each_price %>
+</p>
+<%= link_to 'print' , card_path(@card.id , 'pdf') %>
 <%= link_to 'back', root_path %>

@@ -35,6 +35,13 @@ class CardsController < ApplicationController
 
   def show
     @card = Card.find(params[:id])
+    respond_to do |format|
+      format.html
+      if format.pdf{render template: 'cards/report' , pdf: 'report' , page_height: '3in', page_width: '5in' }
+        @card = Card.find(params[:id])
+        @card.update(status:'Success')
+      end
+    end
   end
 
   def destroy

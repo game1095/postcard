@@ -15,6 +15,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pg', '~> 0.18.4'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
