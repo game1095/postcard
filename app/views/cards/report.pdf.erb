@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<%= wicked_pdf_stylesheet_link_tag "pdf" %>
+</head>
+<body>
+	<center class="postcard_form">
+		<h3>คุณ <%= @card.full_name%></h3>
+		<h3><%= @card.address %></h3>
+		<h3>โทร <%= @card.phone %></h3>
+	</center>
+</body>
+</html>
