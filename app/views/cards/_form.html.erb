@@ -9,15 +9,15 @@
   </p>
   <p>
     <%= f.label :phonenumber%>
-    <%= f.text_field :phone%>
+    <%= f.text_field :phone , required: true %>
   </p>
   <p>
   	<%= f.label :quantity %>
-  	<%= f.number_field :quantity , required: true  %>
+  	<%= f.number_field :quantity , required: true %>
   </p>
   <p>
-    <%# <%= f.label :status%> 
-    <%# <%= f.select "status", "<option>Pending</option><option>Success</option>".html_safe%>
+    <%= f.label :stocks_id %>
+    <%= f.collection_select :stocks_id, Stock.all.order(id: :asc), :id, :name , {prompt: "select stock"} , required: true %>
   </p>
   <p>
     <%= f.submit %>

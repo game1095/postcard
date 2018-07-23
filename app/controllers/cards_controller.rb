@@ -53,7 +53,7 @@ class CardsController < ApplicationController
 
   private
    def card_params
-     params.require(:card).permit(:full_name , :address , :quantity , :status , :phone)
+     params.require(:card).permit(:full_name , :address , :quantity , :status , :phone , :stocks_id)
    end
 
 end
