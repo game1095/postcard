@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718161221) do
+ActiveRecord::Schema.define(version: 20180722145453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,20 @@ ActiveRecord::Schema.define(version: 20180718161221) do
     t.string "quantity"
     t.string "status", default: "Pending"
     t.string "phone"
+    t.bigint "stocks_id"
+    t.index ["stocks_id"], name: "index_cards_on_stocks_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "name"
+    t.integer "amount"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,5 +59,6 @@ ActiveRecord::Schema.define(version: 20180718161221) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "stocks", column: "stocks_id"
   add_foreign_key "cards", "users"
 end

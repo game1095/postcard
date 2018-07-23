@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # get 'cards/:id'
-
   # get 'cards/pdf/'
   resources 'cards'
+  resources 'stocks'
   authenticated :user do
     root 'cards#index', as: :authenticated_root
   end
