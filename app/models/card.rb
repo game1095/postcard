@@ -20,7 +20,7 @@ class Card < ApplicationRecord
   def cal_stock
     stock = Stock.find(stocks_id).amount.to_i - self.quantity.to_i
     Stock.find(stocks_id).update(amount: stock) 
-    end
+  end
 
   def check
     stock  = Stock.find(stocks_id).amount
