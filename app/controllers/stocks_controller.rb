@@ -8,9 +8,9 @@ class StocksController < ApplicationController
   end
 
   def create
-    @stock = Stock.create(stock.params)
+    @stock = Stock.create(stock_params)
     if @stock.save
-      redriect_to root_path
+      redirect_to root_path
     else
       render 'new'
     end
