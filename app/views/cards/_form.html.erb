@@ -17,7 +17,7 @@
   </p>
   <p>
     <%= f.label :stocks_id %>
-    <%= f.collection_select :stocks_id, Stock.all.order(id: :asc), :id, :name , {prompt: "select stock"} , required: true %>
+    <%= f.collection_select(:stocks_id , Stock.all , :id , :stock_name_wtih_amount,{prompt: 'โปรดเลือกแผนก'} ,required: true) %>
   </p>
   <p>
     <%= f.submit %>
