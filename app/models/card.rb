@@ -3,7 +3,7 @@ class Card < ApplicationRecord
   belongs_to :stock , optional: true
   after_destroy :after_destroy
   validate :check
- 
+  
   def each_price
     if self.quantity != nil
       return "#{self.quantity.to_f * 2}  ฿"
@@ -19,7 +19,7 @@ class Card < ApplicationRecord
 
   def cal_stock
     stock = Stock.find(stocks_id).amount.to_i - self.quantity.to_i
-    Stock.find(stocks_id).update(amount: stock) 
+    Stock.find(stocks_id).update(amount: stock)
   end
 
   def check

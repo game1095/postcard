@@ -1,9 +1,10 @@
 class StocksController < ApplicationController
+  before_action :authenticate_user!
   def index
     @stocks = Stock.all.order(id: :asc)
   end
 
-  def new 
+  def new
     @stock = Stock.new
   end
 

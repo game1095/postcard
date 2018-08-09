@@ -1,28 +1,45 @@
-<h1>show</h1>
-<p> 
-    full_name
-    <%= @card.full_name%>
-</p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>รายละเอียดไปรษณียบัตร</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'จัดการไปรษณียบัตร', root_path %>
+      </li>
+      <li class="active">
+        <strong>รายละเอียดไปรษณียบัตร</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+<br>
+<div class='ibox-content'>
+    <p class='form-group'> 
+        <strong>ชื่อ - นามสกุล : </strong>
+        <%= @card.full_name%>
+    </p>
 
-<p>
-    address
-    <%= @card.address%>    
-</p>
-<p>
-    phone
-    <%= @card.phone%>
-</p>
-<p>
-    status
-    <%= @card.status%>
-</p>
-<p>
-    quantity
-    <%= @card.quantity%>
-</p>
-<p>
-    price
-    <%= @card.each_price %>
-</p>
-<%= link_to 'print' , card_path(@card.id , 'pdf') %>
-<%= link_to 'back', root_path %>
+    <p class='form-group'>
+        <strong>ที่อยู่</strong>
+        <%= @card.address%>    
+    </p>
+    <p class='form-group'>
+        <strong>หมายเลขโทรศัพท์ : </strong>
+        <%= @card.phone%>
+    </p>
+    <p class='form-group'>
+        <strong>สถานะ : </strong>
+        <%= @card.status%>
+    </p>
+    <p class='form-group'>
+        <strong>จำนวน : </strong>
+        <%= @card.quantity%>
+    </p>
+    <p class='form-group'>
+        <strong>ราคา</strong>
+        <%= @card.each_price %>
+    </p>
+    <p class='form-group'>
+        <%= link_to 'พิมพ์' , card_path(@card.id , 'pdf') , class: 'btn btn-block btn-outline btn-success' %>
+        <%= link_to 'ย้อนกลับ', root_path , class: 'btn btn-block btn-outline btn-danger' %>
+    </p>
+</div>

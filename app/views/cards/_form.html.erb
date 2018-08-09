@@ -1,25 +1,30 @@
-<%= form_for @card do |f| %>
-  <p>
-    <%= f.label :full_name %>
-    <%= f.text_field :full_name , required: true %>
-  </p>
-  <p>
-  	<%= f.label :address %>
-  	<%= f.text_area :address ,rows: 20 , cols: 30 , required: true %>
-  </p>
-  <p>
-    <%= f.label :phonenumber%>
-    <%= f.text_field :phone , required: true %>
-  </p>
-  <p>
-  	<%= f.label :quantity %>
-  	<%= f.number_field :quantity , required: true %>
-  </p>
-  <p>
-    <%= f.label :stocks_id %>
-    <%= f.collection_select(:stocks_id , Stock.all , :id , :stock_name_wtih_amount,{prompt: 'โปรดเลือกแผนก'} ,required: true) %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class='ibox-content'>
+  <%= form_for @card do |f| %>
+    <p class= 'form-group'>
+      <%= f.label :ชื่อ_นามสกุล %>
+      <%= f.text_field :full_name , required: true , class: 'form-control' %>
+    </p>
+    <p class ='form-group'>
+      <%= f.label :ที่อยู่ %>
+      <%= f.text_area :address ,rows: 5 , cols: 30 , required: true , class: 'form-control' %>
+    </p>
+    <p class ='form-group'>
+      <%= f.label :หมายเลขโทรศัพท์ %>
+      <%= f.text_field :phone , required: true , class: 'form-control' %>
+    </p>
+    <p class ='form-group'>
+      <%= f.label :เลือกแผนก %>
+      <%= f.collection_select(:stocks_id , Stock.all , :id , :stock_name_wtih_amount,{prompt: 'โปรดเลือกแผนก'} ,required: true , class: 'form-control') %>
+    </p>
+    <p class ='form-group'>
+      <%= f.label :จำนวน %>
+      <%= f.number_field :quantity , required: true , class: 'form-control' %>
+    </p>
+    <p class ='form-group'>
+      <%= f.submit 'บันทึก' , class: 'btn btn-block btn-outline btn-success fa fa-save' %>
+    </p>
+    <p>
+      <%= link_to ' ย้อนกลับ' , root_path , class: 'btn btn-block btn-outline btn-danger fa fa-arrow-circle-left' %>
+    </p>
+  <% end %>
+</div>

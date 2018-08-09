@@ -17,7 +17,9 @@ gem 'devise'
 gem 'pg', '~> 0.18.4'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
