@@ -1,20 +1,38 @@
-<h1>New</h1>
-<%= form_for @stock do  |f|%>
-    <p>
-        <%= f.label :name %>
-        <%= f.text_field :name , required: true %>
-    </p>
-    
-    <p>
-        <%= f.label :description %>
-        <%= f.text_area :description , required: true %>
-    </p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>เพิ่มสต็อกสินค้า</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'จัดการสต๊อกสินค้า', stocks_path %>
+      </li>
+      <li class="active">
+        <strong>เพิ่มสต็อกสินค้า</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+<br>
+<div class="ibox-content">
+    <%= form_for @stock do  |f|%>
+        <p class='form-group'>
+            <%= f.label :ชื่อสต๊อกสินค้า %>
+            <%= f.text_field :name , required: true , class: 'form-control' %>
+        </p>
+        
+        <p class='form-group'>
+            <%= f.label :คำอธิบาย %>
+            <%= f.text_area :description , required: true , class: 'form-control' %>
+        </p>
 
-    <p>
-        <%= f.label :amount %>
-        <%= f.number_field :amount , required: true %>
-    </p>
-    <p>
-        <%= f.submit%>
-    </p>
-<% end %>
+        <p class='form-grou'>
+            <%= f.label :จำนวน %>
+            <%= f.number_field :amount , required: true , class: 'form-control' %>
+        </p>
+        <p>
+            <%= f.submit 'บันทึก' , class: 'btn btn-block btn-outline btn-success' %>
+        </p>
+        <p>
+            <%= link_to ' ย้อนกลับ' , stocks_path , class: 'btn btn-block btn-outline btn-danger fa fa-arrow-circle-left' %>
+        </p>
+    <% end %>
+</div>

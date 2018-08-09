@@ -1,15 +1,29 @@
-<h1>Postcard#index</h1>
-<p><%= link_to 'create' , new_card_path(@postcard) %></p>
-<table border="1px">
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>จัดการไปรษณียบัตร</h2>
+    <ol class="breadcrumb">
+      <li>
+        ไปรษณียบัตร
+      </li>
+      <li class="active">
+        <strong>หน้าแรก</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+<br>
+<p><%= link_to ' สร้าง' , new_card_path(@postcard) , class: 'btn btn-outline btn-primary fa fa-plus'%></p>
+<div class="ibox-content">
+  <table class="table table-hover">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>quantity</th>
-      <th>price</th>
-      <th>status</th>
-      <th>Created date</th>
-      <th>User</th>
+      <th>รหัส</th>
+      <th>ชื่อ - นามสกุล</th>
+      <th>จำนวน</th>
+      <th>ราคา</th>
+      <th>สถานะ</th>
+      <th>วันที่สร้าง</th>
+      <th>ผู้ใช้งาน</th>
     </tr>
   </thead>
   <tbody>
@@ -22,11 +36,12 @@
       <td><%= card.status %></td>
       <td><%= card.created_at.strftime('%d/%B/%Y')%></td>
       <td><%= card.user.email %></td>
-      <td><%= link_to 'print' , card_path(card.id , 'pdf') , target:'_blank'%></td>
-      <td><%= link_to 'show' , card_path(card.id) , target: '_blank' %></td>
-      <td><%= link_to 'edit' , edit_card_path(card.id) %></td>
-      <td><%= link_to 'destroy' ,  card_path(card.id) , method: :delete%></td>
+      <td><%= link_to ' พิมพ์' , card_path(card.id , 'pdf') , class: 'btn btn-outline btn-info fa fa-print' , target:'_blank'%></td>
+      <td><%= link_to ' แสดง' , card_path(card.id) , target: '_blank' , class: 'btn btn-outline btn-info fa fa-bars' %></td>
+      <td><%= link_to ' แก้ไข' , edit_card_path(card.id) , class: 'btn btn-outline btn-info fa fa-edit' %></td>
+      <td><%= link_to ' ลบ' ,  card_path(card.id) , method: :delete , class: 'btn btn-outline btn-danger fa fa-trash-o'%></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+</div>
